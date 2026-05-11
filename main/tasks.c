@@ -3,14 +3,14 @@
 
 // Task 1 → Sender
 void sensor_task(void *pvParameters) {
-    int fake_sensor_value = 0;
+    int sensor_value = 0;
 
     while (1) {
-        fake_sensor_value += 10;
+        sensor_value = sensor_read();
 
-        printf("Sensor Task: Sending value = %d\n", fake_sensor_value);
+        printf("Sensor Task: Sending value = %d\n", sensor_value);
 
-        xQueueSend(sensorQueue, &fake_sensor_value, portMAX_DELAY);
+        xQueueSend(sensorQueue, &sensor_value, portMAX_DELAY);
 
         vTaskDelay(pdMS_TO_TICKS(1000));
     }

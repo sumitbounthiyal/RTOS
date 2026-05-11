@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#include "sensor_driver.h"
 
 //Extern queue variable
 extern QueueHandle_t sensorQueue;
